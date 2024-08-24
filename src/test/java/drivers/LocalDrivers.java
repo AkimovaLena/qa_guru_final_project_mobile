@@ -1,7 +1,7 @@
 package drivers;
 
-import config.LocalConfig;
 import com.codeborne.selenide.WebDriverProvider;
+import config.LocalConfig;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.options.UiAutomator2Options;
 import org.aeonbits.owner.ConfigFactory;
@@ -30,7 +30,7 @@ public class LocalDrivers implements WebDriverProvider {
 
         options.setAutomationName(ANDROID_UIAUTOMATOR2)
                 .setPlatformName(ANDROID)
-                .setPlatformVersion(config.version())
+//                .setPlatformVersion(config.version())
                 .setDeviceName(config.deviceName())
                 .setApp(getAppPath())
                 .setAppPackage(config.appPackage())
@@ -48,18 +48,18 @@ public class LocalDrivers implements WebDriverProvider {
     }
 
     private String getAppPath() {
-        String appVersion = config.appVersion();
-        String appUrl = config.appUrl() + appVersion;
-        String appPath = config.appPath() + appVersion;
+//        String appVersion = config.appVersion();
+//        String appUrl = config.appUrl() + appVersion;
+        String appPath = config.appPath() ;
 
         File app = new File(appPath);
-        if (!app.exists()) {
-            try (InputStream in = new URL(appUrl).openStream()) {
-                copyInputStreamToFile(in, app);
-            } catch (IOException e) {
-                throw new AssertionError("Failed to download application", e);
-            }
-        }
+//        if (!app.exists()) {
+//            try (InputStream in = new URL(appUrl).openStream()) {
+//                copyInputStreamToFile(in, app);
+//            } catch (IOException e) {
+//                throw new AssertionError("Failed to download application", e);
+//            }
+//        }
         return app.getAbsolutePath();
     }
 }

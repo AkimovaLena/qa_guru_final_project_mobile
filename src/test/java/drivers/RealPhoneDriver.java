@@ -1,8 +1,8 @@
 package drivers;
 
 
-import config.RealPhoneConfig;
 import com.codeborne.selenide.WebDriverProvider;
+import config.RealPhoneConfig;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.options.UiAutomator2Options;
 import org.aeonbits.owner.ConfigFactory;
@@ -35,10 +35,8 @@ public class RealPhoneDriver implements WebDriverProvider {
                 .setDeviceName(config.deviceName())
                 .setApp(getAppPath())
                 .setAppPackage(config.appPackage())
-                .setAppActivity(config.appActivity())
-                .setLanguage(config.appLanguage())
-                .setLocale(config.appLocale());
-        ;
+                .setAppActivity(config.appActivity());
+
 
         return new AndroidDriver(getAppiumServerUrl(), options);
     }
@@ -52,18 +50,8 @@ public class RealPhoneDriver implements WebDriverProvider {
     }
 
     private String getAppPath() {
-        String appVersion = config.appVersion();
-        String appUrl = config.appUrl() + appVersion;
-        String appPath = config.appPath() + appVersion;
-
+        String appPath = config.appPath() ;
         File app = new File(appPath);
-        if (!app.exists()) {
-            try (InputStream in = new URL(appUrl).openStream()) {
-                copyInputStreamToFile(in, app);
-            } catch (IOException e) {
-                throw new AssertionError("Failed to download application", e);
-            }
-        }
         return app.getAbsolutePath();
     }
 }

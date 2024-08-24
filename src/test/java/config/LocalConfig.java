@@ -18,7 +18,7 @@ public interface LocalConfig extends Config {
 
     String url();
 
-    String appVersion();
+//    String appVersion();
 
     String appUrl();
 

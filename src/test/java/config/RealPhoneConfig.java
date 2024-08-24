@@ -14,7 +14,7 @@ public interface RealPhoneConfig extends Config {
 
     String url();
 
-    String appVersion();
+//    String appVersion();
 
     String appUrl();
 
