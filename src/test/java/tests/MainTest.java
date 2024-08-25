@@ -23,7 +23,7 @@ public class MainTest extends TestBase {
             "Игрушки, Антистресс",
     })
     @ParameterizedTest(name = "Проверяем открытие каталога {0}->{1}")
-    public void openCatalogTets(String category, String subdirectory) {
+    public void openCatalogTest(String category, String subdirectory) {
         presetsPage.notGetNotifications()
                 .selectCountry("Россия")
                 .notUpdate();

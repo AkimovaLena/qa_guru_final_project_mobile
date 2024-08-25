@@ -5,7 +5,6 @@ import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.logevents.SelenideLogger;
 import drivers.BrowserstackDriver;
 import drivers.LocalDrivers;
-import drivers.RealPhoneDriver;
 import helpers.Attach;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.AfterEach;
@@ -29,9 +28,6 @@ public class TestBase {
                 break;
             case ("local"):
                 Configuration.browser = LocalDrivers.class.getName();
-                break;
-            case ("realPhone"):
-                Configuration.browser = RealPhoneDriver.class.getName();
                 break;
             default:
                 System.out.println("Неверно указан девайс");
