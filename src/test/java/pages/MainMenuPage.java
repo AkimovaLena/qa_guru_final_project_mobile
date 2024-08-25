@@ -9,22 +9,22 @@ import static io.appium.java_client.AppiumBy.className;
 
 public class MainMenuPage {
     private final SelenideElement buttonCatalog = $x("//android.view.View[@content-desc=\"Каталог\"]"),
-    buttonCart = $x("//android.view.View[@resource-id=\"CartNavBar\"]");
+            buttonCart = $x("//android.view.View[@resource-id=\"CartNavBar\"]");
 
-    @Step ("Открываем меню каталога")
-    public MainMenuPage openCatalog(){
+    @Step("Открываем меню каталога")
+    public MainMenuPage openCatalog() {
         buttonCatalog.click();
         return this;
     }
 
-    @Step ("Открываем корзину")
-    public MainMenuPage openCart(){
+    @Step("Открываем корзину")
+    public MainMenuPage openCart() {
         buttonCart.click();
         return this;
     }
 
-    @Step ("Проверяем, что колличество товаров в корзине равно {0}")
-    public MainMenuPage checkCountInCart(String value){
+    @Step("Проверяем, что колличество товаров в корзине равно {0}")
+    public MainMenuPage checkCountInCart(String value) {
 //        $x("//android.view.View[@resource-id=\"CartNavBar\"]").$(className("android.widget.TextView")).shouldHave(text(value));
         buttonCart.$(className("android.widget.TextView")).shouldHave(text(value));
         return this;

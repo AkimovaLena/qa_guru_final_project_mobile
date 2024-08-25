@@ -1,6 +1,7 @@
 plugins {
     id 'java-library'
     id 'io.qameta.allure' version '2.11.2'
+    id "io.freefair.lombok" version "6.0.0-m2"
 }
 def aspectjWeaverVersion = "1.9.22",
     selenideVersion = "6.13.0",
@@ -59,8 +60,8 @@ tasks.withType(Test) {
 }
 
 
-task allDevice(type: Test) {
-    useJUnitPlatform {
-        includeTags("allDevice")
+task android(type: Test) {
+    useJUnitPlatform{
+        includeTags("android")
     }
 }

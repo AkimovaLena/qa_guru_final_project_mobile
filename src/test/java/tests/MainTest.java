@@ -2,6 +2,7 @@ package tests;
 
 import io.qameta.allure.Epic;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
@@ -23,6 +24,7 @@ public class MainTest extends TestBase {
             "Игрушки, Антистресс",
     })
     @ParameterizedTest(name = "Проверяем открытие каталога {0}->{1}")
+    @Tag("android")
     public void openCatalogTest(String category, String subdirectory) {
         presetsPage.notGetNotifications()
                 .selectCountry("Россия")
@@ -38,6 +40,7 @@ public class MainTest extends TestBase {
 
     @Test
     @DisplayName("Проверка добавления товара в корзину")
+    @Tag("android")
     public void addProductInCart() {
         presetsPage.notGetNotifications()
                 .selectCountry("Россия")
@@ -54,6 +57,7 @@ public class MainTest extends TestBase {
             "кастрюля",
     })
     @ParameterizedTest(name = "Проверяем подсказки при поиске по ключевому слову {0}")
+    @Tag("android")
     public void searchTest(String value) {
         presetsPage.notGetNotifications()
                 .selectCountry("Россия")

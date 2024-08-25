@@ -11,7 +11,7 @@ public class CartPage {
     private final SelenideElement productList = $x("//android.view.View[@resource-id=\"productList\"]");
 
     @Step("Проверяем, что корзина не пустая")
-    public CartPage checkCart(){
+    public CartPage checkCart() {
         productList.shouldBe(exist);
         return this;
     }
